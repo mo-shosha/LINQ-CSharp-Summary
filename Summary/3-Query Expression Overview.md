@@ -54,14 +54,14 @@ SQL-like syntax using `from`, `where`, and `select`.
 var evenNumbers = from n in numbers
                   where n % 2 == 0
                   select n;
-
+```
 ### B. Method Syntax (Extension Methods)
 
 Uses extension methods like `.Where()` and `.Select()`:
 
 ```csharp
 var evenNumbers = numbers.Where(n => n % 2 == 0);
-
+```
 
 ### Syntax Comparison Notes
 
@@ -75,7 +75,7 @@ var evenNumbers = numbers.Where(n => n % 2 == 0);
 var count = (from n in numbers
              where n > 10
              select n).Count();
-
+```
 ## 5. Method Syntax for Some Operations
 
 Some operations do **not** have equivalents in **query syntax**, so you **must use method syntax** for them. These include:
@@ -90,3 +90,4 @@ Some operations do **not** have equivalents in **query syntax**, so you **must u
 ```csharp
 var maxValue = numbers.Max();
 var totalCount = numbers.Count();
+```
