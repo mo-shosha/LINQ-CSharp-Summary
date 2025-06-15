@@ -33,6 +33,7 @@ The `Where` method filters data based on conditions.
 
 ```csharp
 var filteredCars = cars.Where((car, index) => car.Make == "Ford" && index % 2 == 0);
+```
 
 ---
 
@@ -52,7 +53,7 @@ The `Where` method may throw an `ArgumentNullException` if:
 ```csharp
 var allCars = from car in cars
               select car;
-
+```
 
 ### With Filter
 
@@ -60,14 +61,14 @@ var allCars = from car in cars
 var fordCars = from car in cars
                where car.Make == "Ford"
                select car;
-
+```
 ###  Multiple Conditions
 
 ```csharp
 var selectedCars = from car in cars
                    where car.Make == "Ford" && car.Model == "GT"
                    select car;
-
+```
 
 ### Logical OR
 
@@ -76,19 +77,19 @@ var selectedCars = from car in cars
                    where car.Make == "Ford" && (car.Model == "GT" || car.Model == "F350")
                    select car;
 
-
+```
 ### Method Syntax
 
 ```csharp
 var fordCars = cars.Where(car => car.Make == "Ford");
 
-
+```
 ### With Multiple Conditions
 
 ```csharp
 var selectedCars = cars
     .Where(car => car.Make == "Ford" && (car.Model == "GT" || car.Model == "F350"));
-
+```
 
 ### Chained Where
 
@@ -96,7 +97,7 @@ var selectedCars = cars
 var filteredCars = cars
     .Where(car => car.Make == "Ford")
     .Where(car => car.Model == "GT");
-
+```
 
 ## Clean Code: Using Helper Method
 
@@ -107,12 +108,12 @@ public static bool IsFord(Car car)
 {
     return car.Make == "Ford";
 }
-
+```
 ###  Usage with Method Syntax
 
 ```csharp
 var fordCars = cars.Where(IsFord);
-
+```
 
 ### Usage with Query Syntax
 
@@ -120,3 +121,4 @@ var fordCars = cars.Where(IsFord);
 var fordCarsQuery = from car in cars
                     where IsFord(car)
                     select car;
+```
